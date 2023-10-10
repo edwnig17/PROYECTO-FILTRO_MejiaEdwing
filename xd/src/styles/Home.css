@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000; 
+}
+
+.contenedor {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../img/1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.94);
+  z-index: 1;
+}
+
+.logotipo-container {
+  position: relative;
+  z-index: 2;
+}
+
+.logotipo img {
+  width: 150px;
+  height: auto;
+}
+/* Resto de los estilos existentes */
+
+/* Agrega animación de desvanecimiento/aparición solo al logo */
+.logo-loading {
+  animation: logoAnimation 3s linear infinite;
+}
+
+@keyframes logoAnimation {
+  0%, 100% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+}
+
+.formulario {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  transition: opacity 0.5s ease, transform 1s ease-in-out, z-index 0s linear 1s;
+  z-index: -1;
+  text-align: center; /* Para centrar el contenido horizontalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Para centrar el contenido verticalmente */
+}
+
+
+.contenedor.form-show .formulario {
+  transform: translate(-50%, -50%);
+  display: block;
+  z-index: 2; /* Encima del logo */
+}
+
+/* Agrega animación de desplazamiento del logo hacia la izquierda */
+.logotipo.logo-loading {
+  animation: logoAnimation 3s linear infinite;
+}
+
+@keyframes logoAnimation {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.profile-picture {
+  margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
+.rounded-image {
+  width: 150px; /* Tamaño de la imagen */
+  height: 150px; /* Tamaño de la imagen */
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  object-fit: cover; /* Ajusta la imagen para cubrir el círculo sin deformarla */
+  border: 2px solid #fff; /* Borde blanco alrededor del círculo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ligera alrededor de la imagen */
+}

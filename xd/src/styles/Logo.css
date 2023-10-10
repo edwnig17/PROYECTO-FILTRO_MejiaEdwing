@@ -1,0 +1,24 @@
+.logotipo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+    animation: logoAnimation 3s linear infinite;
+}
+
+
+.logotipo img {
+    width: 130px;
+    height: auto;
+}
+
+@keyframes logoAnimation {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
