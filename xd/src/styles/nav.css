@@ -1,4 +1,4 @@
-.nav {
+.navbar {
   display: flex;
   background-color: rgb(255, 255, 255);
   align-items: center;
@@ -6,22 +6,22 @@
   position: relative; 
 }
 
-.nav::after {
+.navbar::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 2px; /* Ajusta el grosor de la línea según tus preferencias (1px para hacerla más delgada) */
-  background-color: rgba(0, 0, 0, 0.2); /* Cambia el color de fondo de la línea (negro con una opacidad reducida) */
+  height: 2px; 
+  background-color: rgba(0, 0, 0, 0.2); 
 }
 
-.logo {
+.logoPrimary{
   color: orange;
   font-size: 24px;
 }
 
-.links {
+.anclas {
   display: flex;
   font-size: 20px;
   justify-content: space-evenly;
@@ -29,7 +29,7 @@
   margin-left: -100px;
 }
 
-.link {
+.ancla {
   color: black;
   text-decoration: none;
   padding: 5px 10px;
@@ -42,39 +42,39 @@
   width: 40px;
 }
 
-.logoss{
+.iconos1{
   width:180px;
   height: 65px;
   margin-right: -70px;
 }
 
-.logos{
+.iconos{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.settings{
+.confi{
   width:135px;
   height: 45px;
   margin-left: 100px;
 }
 
-.settingsContenedor{
+.configuracionConte{
   display: flex;
   align-items: center;
   margin-left: -200px;
 }
 
 
-.settingss{
+.notificacion{
   width:135px;
   height: 45px;
   margin-left: -100px;
 }
 
 
-.logoFoto{
+.Foto{
   width: 50px;
   height: 50px;
   border-radius: 40px;
