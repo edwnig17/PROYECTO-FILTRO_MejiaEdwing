@@ -14,10 +14,11 @@ const login = async (req, res) => {
     }
     // const validContraseña = bcryptjs.compareSync(contraseña, usuario.contraseña);
     // if(!validContraseña)
-    if(!usuario.contraseña){
+
+    if(usuario.contraseña !== contraseña){
         return res.status(401).json({ msg: 'Credenciales inválidas' });
     }
-    if (usuario.rol === 'UsuarioRegular' || usuario.rol === 'UsuarioAdministrador') {
+    if (usuario.rol === 'Usuario regular' || usuario.rol === 'Usuario administrador') {
         // El usuario tiene un rol válido, genera el token.
         const token = await generateJWT(usuario.id);
         // Devuelve el token en la respuesta.

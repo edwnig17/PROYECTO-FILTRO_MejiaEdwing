@@ -1,18 +1,20 @@
 
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-
 import '../styles/Home.css'; 
 import logoImg from '../img/KARIO_LOGO.png';
-import profileImage from '../img/foto.png';
+import fotologo from '../img/KARIO_LOGO1.png';
+import { Link } from 'react-router-dom';
 
 function LoginForm() {
+  
   const [showLogo, setShowLogo] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [redirectToPanel, setRedirectToPanel] = useState(false);
   const foto = localStorage.getItem('foto')
   const nombre = localStorage.getItem('nombre')
   const rol = localStorage.getItem('rol')
+  const token = localStorage.getItem('token')
 
   useEffect(() => {
     const timer1 = setTimeout(() => {
@@ -30,11 +32,13 @@ function LoginForm() {
 
     return () => clearTimeout(timer1);
   }, []);
-
+ if(!token){
+  return <Redirect to="/" />;
+ }
   if (redirectToPanel) {
     return <Redirect to="/Panel" />;
-  }
-
+  } 
+  
   return (
     <div className={`contenedor ${showForm ? 'form-show' : ''}`}>
       <div className="overlay"></div>
@@ -45,7 +49,8 @@ function LoginForm() {
       </div>
       {showForm && (
         <div className={`formulario mostrado ${showLogo ? 'logo-fade-out' : ''}`}>
-          <h1>Bienvenido de nuevo</h1>
+          <img src={fotologo} alt="Kario Logo" className="fotologo" />
+          <h1 className="pabajo">Bienvenido de nuevo</h1>
           <div className="profile-picture">
             <img src={foto} alt="Foto de perfil" className="rounded-image" />
           </div>
@@ -56,6 +61,7 @@ function LoginForm() {
       )}
     </div>
   );
+  
 }
 
 export default LoginForm;

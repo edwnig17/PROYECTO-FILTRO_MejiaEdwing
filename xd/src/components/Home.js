@@ -47,18 +47,27 @@ function Home() {
         localStorage.setItem("Usuario", id);
         localStorage.setItem("foto", foto);
         switch (rol) {
-          case "UsuarioRegular":
+          case "Usuario regular":
             history.push("/login");
             break;
+          case "Usuario administrador":
+              history.push("/login");
+              break;
           default:
             history.push("/Home");
             break;
         }
-      } else {
-        setError("Credenciales inválidas");
+      } 
+      else {
+        setError(response.data.msg)
       }
     } catch (error) {
-      setError("Error interno del servidor");
+      if(error.response){
+        setError(error.response.data.msg);
+      }
+      else{
+      setError("Erro al iniciar sesion");
+      }
     }
   };
 
@@ -77,50 +86,53 @@ function Home() {
   }, [isLoading]);
 
   return (
-    <form onSubmit={handleSubmit}>
-    <div className={`contenedor ${showForm ? 'form-show' : ''}`}>
-      <div className="overlay"></div>
-      <div className="logotipo-container">
-        <div className={`logotipo ${isLoading ? 'logo-loading' : ''}`} id="logo">
-          <img src={logoImg} alt="Logo" />
-        </div>
-      </div>
-      <div className={`formulario ${showForm ? 'form-show' : ''}`}>
-        <div className="logo-form">
-          <img src={logoImg} alt="Logo del formulario" />
-        </div>
-        <h1>Bienvenido</h1>
-        <p>Por favor, inicia sesión para acceder al panel.</p>
-        <div>
-        <div className="input-container">
-            <label htmlFor="username">Usuario:</label>
-            <input  id="username" name="username" type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required/>
-        </div>
-        <div className="input-container">
-          <label htmlFor="password">Contraseña:</label>
-          <input type="password" id="password" name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required />
-        </div>
-        </div>
-        <button type="submit" className="login-button">
-              Iniciar Sesión
-            </button>
-        {error && (
-          <div>
-            <p className="login-error">{error}</p>
+      <form onSubmit={handleSubmit}>
+      <div className={`contenedor ${showForm ? 'form-show' : ''}`}>
+        <div className="overlay"></div>
+        <div className="logotipo-container">
+          <div className={`logotipo ${isLoading ? 'logo-loading' : ''}`} id="logo">
+            <img src={logoImg} alt="Logo" />
           </div>
-        )}
-        <p className="small-text">
-          ¿Olvidaste tu contraseña? <a href="#">Recupérala aquí</a>
-        </p>
+        </div>
+        <div className={`formulario ${showForm ? 'form-show' : ''}`}>
+          <div className="logo-form">
+            <img src={logoImg} alt="Logo del formulario" />
+          </div>
+          <h1>Bienvenido al panel digital de</h1>
+          <h2> KARIO media</h2>
+          <p>Por favor, ingrese los siguientes datos para ingresar la plataforma.</p>
+          <div>
+          <div className="input-container">
+              <label htmlFor="username">  </label>
+              <input  id="username" name="username" type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder='Usuario'
+                required/>
+          </div>
+          <div className="input-container">
+            <label htmlFor="password"></label>
+            <input type="password" id="password" name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder='Contraseña'
+                required />
+          </div>
+          </div>
+          <button type="submit" className="login-button">
+                Ingresar al panel 
+              </button>
+          {error && (
+            <div>
+              <p className="login-error">{error}</p>
+            </div>
+          )}
+          <p className="small-text">
+            Tienes problemas para ingresar? Por favor conectarse con asistencia técnica lo más pronto posible. 
+          </p>
+        </div>
       </div>
-    </div>
-    </form>
+      </form>
   );
 }
 

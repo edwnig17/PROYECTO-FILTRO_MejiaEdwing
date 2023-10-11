@@ -11,7 +11,8 @@ class Server {
         this.path={
             role:'/api/roles',
             login:'/api/login',
-            usuario:'/api/usuarios'
+            usuario:'/api/usuarios',
+            indicadores:'/api/indicadores'
          }
         this.routes()
     }
@@ -26,7 +27,8 @@ class Server {
         this.app.use(this.path.role,require('../routes/role.routes'));
         this.app.use(this.path.usuario,require('../routes/usuarios.routes'));
         this.app.use(this.path.login,require('../routes/login.routes'));
-        
+        this.app.use(this.path.indicadores,require('../routes/indicador.routes'))
+
     }
     listening(){
         this.app.listen(this.port,()=>{console.log(`Escuchando el puerto ${this.port}`)})

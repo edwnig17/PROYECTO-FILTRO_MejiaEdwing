@@ -37,9 +37,8 @@ body {
   width: 150px;
   height: auto;
 }
-/* Resto de los estilos existentes */
 
-/* Agrega animación de desvanecimiento/aparición solo al logo */
+
 .logo-loading {
   animation: logoAnimation 3s linear infinite;
 }
@@ -59,32 +58,98 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(248, 237, 237);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 60px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 80%;
-  max-width: 400px;
+  max-width: 800px;
   margin: 0 auto;
   transition: opacity 0.5s ease, transform 1s ease-in-out, z-index 0s linear 1s;
   z-index: -1;
-  text-align: center; /* Para centrar el contenido horizontalmente */
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Para centrar el contenido verticalmente */
+  justify-content: center;
+}
+
+.formulario input {
+  width: 70%;
+  padding: 15px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+.formulario .login-button {
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.formulario .input-container {
+  margin-bottom: 20px;
 }
 
 
+.formulario .login-button {
+  padding: 10px 20px;
+  background-color: #FF6F2C; 
+  color: #fff; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+
+.formulario .login-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.logo-form img{
+  width: 120px ;
+  margin-top: 17px;
+  margin-bottom: 15px;
+}
+
+.formulario .small-text a {
+  color: #000;
+  text-decoration: underline;
+  
+}
+
+.small-text{
+  margin-top: 33px;
+}
 .contenedor.form-show .formulario {
   transform: translate(-50%, -50%);
   display: block;
-  z-index: 2; /* Encima del logo */
+  z-index: 2;
+  width: 100% ;
+  height: 600px;
 }
 
-/* Agrega animación de desplazamiento del logo hacia la izquierda */
+
 .logotipo.logo-loading {
   animation: logoAnimation 3s linear infinite;
+}
+
+
+
+.contenedor.form-show .formulario .input-container {
+  margin-bottom: 20px; 
 }
 
 @keyframes logoAnimation {
@@ -97,14 +162,63 @@ body {
 }
 
 .profile-picture {
-  margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+  margin-top: 20px; 
 }
 
 .rounded-image {
-  width: 150px; /* Tamaño de la imagen */
-  height: 150px; /* Tamaño de la imagen */
-  border-radius: 50%; /* Hace que la imagen sea circular */
-  object-fit: cover; /* Ajusta la imagen para cubrir el círculo sin deformarla */
-  border: 2px solid #fff; /* Borde blanco alrededor del círculo */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ligera alrededor de la imagen */
+  width: 150px; 
+  height: 150px;
+  border-radius: 50%; 
+  object-fit: cover; 
+  border: 2px solid #ec7f18; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logotipo-container {
+  text-align: center;
+}
+
+.logotipo {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+}
+
+.logotipo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.formulario {
+  text-align: center;
+}
+
+.profile-picture img {
+  width:  200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 30px;
+  
+}
+
+.user-name {
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+
+.fotologo{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
 }

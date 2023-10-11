@@ -1,8 +1,9 @@
-/* Estilos generales */
+ 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: white;
 }
 
 .container {
@@ -11,7 +12,7 @@ body {
   padding: 10px;
 }
 
-/* Estilos del contenido */
+
 .pagina {
   font-weight: normal;
   font-size: 12px;
@@ -44,8 +45,7 @@ th, td {
   align-items: center;
   border-radius: 15px;
   border: 1px solid #707070;
-  padding: 10px; /* Ajustado el espacio interno */
-  gap: 10px; /* Espaciado entre elementos reducido */
+  width: 95%;
 }
 
 .titulo {
@@ -74,4 +74,66 @@ th, td {
   margin-bottom: -9px;
   margin-top: 10px; 
   flex-direction: row;
+}
+.circle {
+  width: 30px;
+  height: 30px;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+}
+
+.circle-red {
+  background-color: red;
+}
+
+.circle-yellow {
+  background-color: yellow;
+}
+
+.circle-green {
+  background-color: green;
+}
+
+.circle-fill {
+  height: 100%;
+  transition: width 1s; 
+}
+
+.inner-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.cumplimiento-text{
+margin-left: 5px;
+margin-bottom: 54px;
+margin-top: 8px;
+}
+
+.pagina{
+display: flex;
+justify-content: center;
+}
+
+.paginas{
+  display: flex;
+  justify-content: center
+;
+}
+
+.info10{
+  display: flex;
+  justify-content: center;
 }
