@@ -1,4 +1,4 @@
-const { postIndicador,getIndicador,deleteIndicador } = require('../controllers/indicadores.controllers');
+const { postIndicador,getIndicador,deleteIndicador,getindicadorId } = require('../controllers/indicadores.controllers');
 const routerIndicador = require('express').Router();
 const { check } = require('express-validator');
 
@@ -15,6 +15,8 @@ routerIndicador.post(
 );
 
 routerIndicador.get('/',getIndicador);
+//GET INDICADOR POR ID 
+routerIndicador.get('/:id',getindicadorId)
 routerIndicador.delete('/:id',deleteIndicador)
 
 module.exports = routerIndicador;

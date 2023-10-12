@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Hamburguesa from '../img/Hamburguesa.png';
 import '../styles/pagina.css';
 
 const Pagina = () => {
+  const history = useHistory();
+
   const [cumplimiento, setCumplimiento] = useState(null);
   const [indicadores, setIndicadores] = useState([]);
   const [seleccionados, setSeleccionados] = useState([]);
 
+  const handleIndicadorClick = (indicadorId) => {
+    history.push(`/detalles/${indicadorId}`);
+  };
   const updateCumplimiento = (nuevoCumplimiento) => {
     if (!isNaN(nuevoCumplimiento) && nuevoCumplimiento >= 0 && nuevoCumplimiento <= 100) {
       setCumplimiento(nuevoCumplimiento);
@@ -49,6 +55,7 @@ const Pagina = () => {
     }
   };
 
+
   const circleClass = getCircleClass(cumplimiento);
   const circleFill = (cumplimiento > 100) ? 100 : cumplimiento;
 
@@ -83,7 +90,7 @@ const Pagina = () => {
       <td className="seleccion">
         <input
           type="checkbox"
-          onChange={() => handleIndicadorSeleccionado(indicador.id)}
+          onChange={() => handleIndicadorClick(indicador.id)}
         />
       </td>
       <td className="">{indicador.nombre}</td>

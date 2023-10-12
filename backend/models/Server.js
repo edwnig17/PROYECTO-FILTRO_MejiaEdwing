@@ -12,7 +12,9 @@ class Server {
             role:'/api/roles',
             login:'/api/login',
             usuario:'/api/usuarios',
-            indicadores:'/api/indicadores'
+            indicadores:'/api/indicadores',
+            Feedback: '/api/feedback',
+            Contact: '/api/contact',
          }
         this.routes()
     }
@@ -28,6 +30,8 @@ class Server {
         this.app.use(this.path.usuario,require('../routes/usuarios.routes'));
         this.app.use(this.path.login,require('../routes/login.routes'));
         this.app.use(this.path.indicadores,require('../routes/indicador.routes'))
+        this.app.use(this.path.Feedback,require('../routes/feedback.routes'))
+        this.app.use(this.path.Contact,require('../routes/contact.routes'))
 
     }
     listening(){

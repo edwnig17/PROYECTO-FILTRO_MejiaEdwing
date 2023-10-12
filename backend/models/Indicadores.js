@@ -1,14 +1,29 @@
 const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const fechaValidator = {
-  validator: function (value) {
-    // Define aquí tu lógica de validación de fecha, por ejemplo:
-    // Aquí asumimos que se proporcionará una fecha en formato 'DD/MM/YYYY'
-    const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-    return dateRegex.test(value);
+const TareaSchema = Schema({
+  nombre: {
+    type: String,
+    required: [true, 'El nombre de la tarea es obligatorio'],
   },
-  message: 'La fecha debe estar en formato dia/mes/año (DD/MM/YYYY)',
-};
+  descripcion: {
+    type: String,
+    required: [true, 'La descripción de la tarea es obligatoria'],
+  },
+  fechaInicio: {
+    type: Date,
+    required: [true, 'La fecha de Inicio es obligatoria'],
+  },
+  fechaVencimiento: {
+    type: Date,
+    required: [true, 'La fecha de vencimiento es obligatoria'],
+  },
+  usuario: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Usuario', // Referencia al modelo de Usuario
+    required: true,
+  }
+});
 
 const IndicadoresSchema = Schema({
   nombre: {
@@ -17,25 +32,23 @@ const IndicadoresSchema = Schema({
   },
   descripcion: {
     type: String,
-    required: [true, 'La descripcion es obligatoria'],
+    required: [true, 'La descripción es obligatoria'],
   },
   categoria: {
     type: String,
-    required: [true, 'La Categoria es obligatoria'],
+    required: [true, 'La categoría es obligatoria'],
   },
   fechaInicio: {
-    type: String,
-    required: [true, 'La fecha de inicio es obligatoria'],
-    validate: fechaValidator,
+    type: Date,
+    required: [true, 'La fecha de inicio es obligatoria']
   },
   fechaTerminacion: {
-    type: String,
-    required: [true, 'La fecha de terminacion es obligatoria'],
-    validate: fechaValidator,
+    type: Date,
+    required: [true, 'La fecha de terminación es obligatoria']
   },
   formula: {
     type: String,
-    required: [true, 'La formula es obligatoria'],
+    required: [true, 'La fórmula es obligatoria'],
   },
   frecuencia: {
     type: String,
@@ -43,13 +56,13 @@ const IndicadoresSchema = Schema({
   },
   area: {
     type: String,
-    required: [true, 'El area es obligatoria'],
+    required: [true, 'El área es obligatoria'],
   },
   cumplimiento: {
     type: Number,
-    required: [true, 'El cumplimiento es obligatoria'],
-  }
-
+    required: [true, 'El cumplimiento es obligatorio'],
+  },
+  tareas: [TareaSchema], // Agrega un campo "tareas" que es un array de TareaSchema
 });
 
 const Indicador = model('Indicador', IndicadoresSchema);

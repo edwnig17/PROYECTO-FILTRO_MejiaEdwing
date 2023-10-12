@@ -1,19 +1,37 @@
 const Indicador = require('../models/Indicadores');
 
 const postIndicador = async (req, res) => {
-    try {
-        const { nombre, descripcion, categoria, fechaInicio, fechaTerminacion, formula, frecuencia, area, cumplimiento } = req.body;
-        const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-        if (!dateRegex.test(fechaInicio) || !dateRegex.test(fechaTerminacion)) {
-            return res.status(400).json({ error: 'Formato de fecha inválido' });
+    const postIndicador = async (req, res) => {
+        try {
+            const { nombre, descripcion, categoria, fechaInicio, fechaTerminacion, formula, frecuencia, area, cumplimiento, tareas } = req.body;
+    
+            // Validación de fechas
+            const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+            if (!dateRegex.test(fechaInicio) || !dateRegex.test(fechaTerminacion)) {
+                return res.status(400).json({ error: 'Formato de fecha inválido' });
+            }
+            const indicador = new Indicador({
+                nombre,
+                descripcion,
+                categoria,
+                fechaInicio,
+                fechaTerminacion,
+                formula,
+                frecuencia,
+                area,
+                cumplimiento,
+                tareas
+            });
+    
+            // Guarda el indicador en la base de datos
+            await indicador.save();
+    
+            res.status(201).json(indicador);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Error al crear el indicador' });
         }
-        const indicador = new Indicador({ nombre, descripcion, categoria, fechaInicio, fechaTerminacion, formula, frecuencia, area,cumplimiento });
-        await indicador.save();
-        res.status(201).json(indicador)
-    } catch (error) {
-        console.log(error);
-        res.status(404).json({ error });
-    }
+    };
 }
 const getIndicador = async(req,res)=>{
     try{
@@ -24,7 +42,21 @@ const getIndicador = async(req,res)=>{
         res.status(404).json({ msg: 'Error al obtener indicadores' });
     }
 }
-
+const getindicadorId= async (req, res) => {
+    try {
+      const indicador = await Indicador.findById(req.params.id);
+  
+      if (!indicador) {
+        return res.status(404).json({ error: 'Indicador no encontrado' });
+      }
+  
+      res.json(indicador);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error al obtener el indicador' });
+    }
+  };
+  
 const deleteIndicador= async(req,res)=>{
     try {
         const { id } = req.params;
@@ -35,4 +67,4 @@ const deleteIndicador= async(req,res)=>{
         res.status(404).json({ msg: "Error al borrar Categoria" });
       }
 }
-module.exports = { postIndicador,getIndicador,deleteIndicador }
+module.exports = { postIndicador,getIndicador,deleteIndicador,getindicadorId }
