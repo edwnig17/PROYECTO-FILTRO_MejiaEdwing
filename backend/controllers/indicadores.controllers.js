@@ -1,38 +1,30 @@
 const Indicador = require('../models/Indicadores');
-
 const postIndicador = async (req, res) => {
-    const postIndicador = async (req, res) => {
-        try {
-            const { nombre, descripcion, categoria, fechaInicio, fechaTerminacion, formula, frecuencia, area, cumplimiento, tareas } = req.body;
-    
-            // Validación de fechas
-            const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-            if (!dateRegex.test(fechaInicio) || !dateRegex.test(fechaTerminacion)) {
-                return res.status(400).json({ error: 'Formato de fecha inválido' });
-            }
-            const indicador = new Indicador({
-                nombre,
-                descripcion,
-                categoria,
-                fechaInicio,
-                fechaTerminacion,
-                formula,
-                frecuencia,
-                area,
-                cumplimiento,
-                tareas
-            });
-    
-            // Guarda el indicador en la base de datos
-            await indicador.save();
-    
-            res.status(201).json(indicador);
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ error: 'Error al crear el indicador' });
-        }
-    };
-}
+  try {
+      const { nombre, descripcion, categoria, fechaInicio, fechaTerminacion, formula, frecuencia, area, cumplimiento, tareas } = req.body;
+      
+      const indicador = new Indicador({
+          nombre,
+          descripcion,
+          categoria,
+          fechaInicio,
+          fechaTerminacion,
+          formula,
+          frecuencia,
+          area,
+          cumplimiento,
+          tareas
+      });
+
+      // Guarda el indicador en la base de datos
+      await indicador.save();
+
+      res.status(201).json(indicador);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error al crear el indicador' });
+  }
+};
 const getIndicador = async(req,res)=>{
     try{
         const indicador = await Indicador.find()
