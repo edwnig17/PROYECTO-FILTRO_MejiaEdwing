@@ -22,8 +22,8 @@ const Faq = () => {
         </div>
 
         <div className="faq-question">
-          <h2>¿Qué métodos de pago aceptan?</h2>
-          <p>Aceptamos tarjetas de crédito y débito, así como PayPal. Puedes seleccionar tu método de pago preferido durante el proceso de compra.</p>
+          <h2>¿Cómo agrego un indicador?</h2>
+          <p>Debes entrar con tús credenciales y darle click al icono que dice añadir , las escribes envías y listo, ya tienes tú indicador !!.</p>
         </div>
 
         <div className="faq-question">

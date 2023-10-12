@@ -11,6 +11,8 @@ import Faq from './components/faq';
 import Contact from './components/contact';
 import RutaProtegida from './components/RutaProtegida'; 
 import Detalles from './components/Detalles'
+import Borrar from './components/Borrar'
+import Recuperar from './components/recuperar'
 
 function App() {
   return (
@@ -18,12 +20,13 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={LoginForm} />
-        <Route path="/detalles" component={Detalles}/>
-        {/* Las siguientes rutas están protegidas */}
+        <Route path="/detalles/:id" component={Detalles}/>
+        <Route path="/borrar" component={Borrar}/>
+        <Route path="/recuperar" component={Recuperar}/>
         <RutaProtegida path="/Panel" component={Panel} />
         <RutaProtegida path="/pagina" component={Pagina} />
         <Route path="/añadir" component={FormIndicador} />
-        <RutaProtegida path="/reporte" component={Feedback} />
+        <RutaProtegida path="/reportar" component={Feedback} />
         <RutaProtegida path="/ayuda" component={Ayuda} />
         <RutaProtegida path="/faq" component={Faq} />
         <RutaProtegida path="/contact" component={Contact} />

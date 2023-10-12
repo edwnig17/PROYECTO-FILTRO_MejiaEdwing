@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Home.css';
 import logoImg from '../img/KARIO_LOGO.png';
 import axios from "axios";
-import {useHistory} from "react-router-dom"
+import {useHistory } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
 
 function Home() {
@@ -128,7 +129,7 @@ function Home() {
             </div>
           )}
           <p className="small-text">
-            Tienes problemas para ingresar? Por favor conectarse con asistencia técnica lo más pronto posible. 
+             <Link to = '/recuperar'>Tienes problemas para ingresar? Por favor conectarse con asistencia técnica lo más pronto posible.</Link>
           </p>
         </div>
       </div>

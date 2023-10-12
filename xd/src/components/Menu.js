@@ -42,7 +42,7 @@ const Nav = ({ seleccionando, handleToggleSeleccion, handleBorrarSeleccionados }
 
         <div className='iconos' >
           <img className='iconos1' src={image3} alt="" />
-          <Link to="/delete" className="ancla">Eliminar</Link>
+          <Link to="/borrar" className="ancla">Eliminar</Link>
         </div>
 
         <div className='iconos' >

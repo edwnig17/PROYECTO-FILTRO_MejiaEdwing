@@ -1,26 +1,27 @@
- 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: white;
 }
 
-.container {
-  max-width: 800px;
+.app {
+  max-width: 100%;
   margin: 0 auto;
   padding: 10px;
+  font-family: Arial, sans-serif;
+  background-color: white;
 }
-
 
 .pagina {
   font-weight: normal;
-  font-size: 12px;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .paginas {
-  font-weight: lighter;
+  font-weight: normal;
   font-size: 12px;
+  text-align: center;
 }
 
 .tabla-container {
@@ -28,53 +29,71 @@ body {
   overflow-x: auto;
 }
 
+.tabla-container {
+  margin: 10px;
+  overflow-x: hidden;
+}
+
+/* Establece los estilos generales de la tabla */
 .tabla {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-}
-
-th, td {
-  padding: 5px;
-  text-align: center;
-}
-
-.informacion {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction: column;
   border-radius: 15px;
-  border: 1px solid #707070;
-  width: 95%;
+  background-color: white;
 }
 
-.titulo {
-  font-size: 18px;
-  font-weight: normal;
+/* Establece los estilos del encabezado de la tabla */
+.tabla-header {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
-  padding: 6px;
-  border-radius: 8px;
-}
-
-
-.Hamburguesa {
-  width: 20px;
-  height: 20px;
-  margin-left: -10px;
-  margin-right: -30px;
-}
-
-.titulo-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-bottom: -9px;
-  margin-top: 10px; 
   flex-direction: row;
+  font-weight: bold;
+  background-color: #e5e5e5;
+  justify-content: space-between
 }
+
+/* Establece los estilos de cada columna del encabezado */
+.columna-header {
+  flex: 1;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center; /* Alinea el texto en el centro */
+}
+/* Establece los estilos de los encabezados de las columnas */
+.columna {
+  text-align: center; /* Centra el texto horizontalmente */
+  padding: 10px;
+}
+
+
+/* Establece los estilos del cuerpo de la tabla */
+.tabla-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Establece los estilos de cada fila de la tabla */
+.rectangulo {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  background-color: #e5e5e5;
+}
+
+/* Establece los estilos de cada columna */
+.columna {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Clases para los círculos */
 .circle {
   width: 30px;
   height: 30px;
@@ -84,8 +103,8 @@ th, td {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   font-weight: bold;
+  margin: 0 auto;
 }
 
 .circle-red {
@@ -102,38 +121,62 @@ th, td {
 
 .circle-fill {
   height: 100%;
-  transition: width 1s; 
+  transition: width 1s;
 }
 
-.inner-circle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: white;
+/* Centra el texto en el círculo */
+.circle .cumplimiento-text {
+  text-align: center;
+  margin: 0;
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.cumplimiento-text{
-margin-left: 5px;
-margin-bottom: 54px;
-margin-top: 8px;
-}
-
-.pagina{
-display: flex;
-justify-content: center;
-}
-
-.paginas{
+/* Añade estilo a la información */
+.informacion {
   display: flex;
-  justify-content: center
-;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid #707070;
 }
 
-.info10{
+.titulo {
+  font-size: 18px;
+  font-weight: normal;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+/* Estilo para la página y las áreas */
+.pagina {
   display: flex;
   justify-content: center;
+}
+
+.paginas {
+  display: flex;
+  justify-content: center;
+}
+
+.info10 {
+  display: flex;
+  justify-content: center;
+}
+
+.columna9 {
+  position: relative; /* Establece la posición relativa en el contenedor del icono */
+}
+
+/* Establece estilos para el icono de hamburguesa */
+.img-hamburguesa { /* Establece la posición absoluta para el icono */
+width: 30px;
+position: absolute;
+margin-top: 15px;
 }

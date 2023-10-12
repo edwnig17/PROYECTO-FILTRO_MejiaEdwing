@@ -15,8 +15,8 @@ function FormularioIndicador() {
   const [formula, setFormula] = useState('');
   const [frecuencia, setFrecuencia] = useState('');
   const [area, setArea] = useState('');
-  const [usuarios, setUsuarios] = useState([]); // Estado para almacenar los usuarios
-  const [selectedUserId, setSelectedUserId] = useState(''); // ID de usuario seleccionado
+  const [usuarios, setUsuarios] = useState([]); 
+  const [selectedUserId, setSelectedUserId] = useState(''); 
   const [tareas, setTareas] = useState([]);
   const [error, setError] = useState(null);
 
@@ -30,7 +30,7 @@ function FormularioIndicador() {
       });
   }, []);
   tareas.forEach((tarea) => {
-    tarea.usuario = selectedUserId; // Asigna el usuario seleccionado a cada tarea
+    tarea.usuario = selectedUserId; 
 });
   const handleAddTarea = () => {
     setTareas([...tareas, { nombre: '', descripcion: '', fechaInicio: '', fechaVencimiento: '', usuario: selectedUserId }]);

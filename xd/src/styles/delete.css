@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+  }
+  
+  .delete-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+  }
+  
+  .delete-title {
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .delete-subtitle {
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .indicadores-container{
+    margin: 10px;
+    overflow-x: auto;
+  }
+  
+  .tabla-container {
+    margin: 10px;
+    overflow-x: hidden;
+  }
+  
+  /* Establece los estilos generales de la tabla */
+  .tabla {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: white;
+  }
+  
+  /* Establece los estilos del encabezado de la tabla */
+  .tabla-header {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    background-color: #e5e5e5;
+    justify-content: space-between
+  }
+  
+  /* Establece los estilos de cada columna del encabezado */
+  .columna-header {
+    flex: 1;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center; /* Alinea el texto en el centro */
+  }
+  /* Establece los estilos de los encabezados de las columnas */
+  .columna {
+    text-align: center; /* Centra el texto horizontalmente */
+    padding: 10px;
+  }
+  
+  
+  /* Establece los estilos del cuerpo de la tabla */
+  .tabla-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Establece los estilos de cada fila de la tabla */
+  .rectangulo {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    background-color: #e5e5e5;
+  }
+  
+  /* Establece los estilos de cada columna */
+  .columna {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Clases para los círculos */
+  .circle {
+    width: 30px;
+    height: 30px;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto;
+  }
+  
+  .circle-red {
+    background-color: red;
+  }
+  
+  .circle-yellow {
+    background-color: yellow;
+  }
+  
+  .circle-green {
+    background-color: green;
+  }
+  
+  .circle-fill {
+    height: 100%;
+    transition: width 1s;
+  }
+  
+  /* Centra el texto en el círculo */
+  .circle .cumplimiento-text {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Añade estilo a la información */
+  .informacion {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid #707070;
+  }
+  
+  .titulo {
+    font-size: 18px;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 6px;
+    border-radius: 8px;
+  }
+  
+  /* Estilo para la página y las áreas */
+  .pagina {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .paginas {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .info10 {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .columna9 {
+    position: relative; /* Establece la posición relativa en el contenedor del icono */
+  }
+  
+  /* Establece estilos para el icono de hamburguesa */
+  .img-hamburguesa { /* Establece la posición absoluta para el icono */
+  width: 30px;
+  position: absolute;
+  margin-top: 15px;
+  }

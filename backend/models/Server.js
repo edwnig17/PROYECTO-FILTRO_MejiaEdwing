@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dbConnection = require('../database/config');
 
+
 class Server {
     constructor(){
         this.app = express();
@@ -15,6 +16,7 @@ class Server {
             indicadores:'/api/indicadores',
             Feedback: '/api/feedback',
             Contact: '/api/contact',
+            recuperacion: '/api/recuperacion',
          }
         this.routes()
     }
@@ -32,6 +34,7 @@ class Server {
         this.app.use(this.path.indicadores,require('../routes/indicador.routes'))
         this.app.use(this.path.Feedback,require('../routes/feedback.routes'))
         this.app.use(this.path.Contact,require('../routes/contact.routes'))
+        this.app.use(this.path.recuperacion, require('../routes/recuperar.routes'));
 
     }
     listening(){

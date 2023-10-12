@@ -62,4 +62,48 @@ const getdatosUsuario= async (req, res) => {
       res.status(500).json({ error: 'Error al obtener usuarios' });
     }
   };
-module.exports= {postUsuario,getUsuarios,deleteUsuarios,putUsuarios,getdatosUsuario}
+  // Buscar un usuario por ID
+const buscarUsuarioPorId = async (req, res) => {
+    try {
+      const usuarioId = req.params.id; // ID del usuario proporcionado en los parámetros de la URL
+  
+      const usuario = await Usuario.findById(usuarioId);
+  
+      if (!usuario) {
+        return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+      }
+  
+      return res.status(200).json(usuario);
+    } catch (error) {
+      return res.status(500).json({ mensaje: 'Error al buscar el usuario', error: error.message });
+    }
+  };
+
+
+  const actualizarContrasena = async (req, res) => {
+    const { email, nuevaContrasena } = req.body;
+  
+    try {
+      const usuario = await Usuario.findOne({ email });
+  
+      if (!usuario) {
+        return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+      }
+  
+      usuario.contraseña = nuevaContrasena;
+      await usuario.save();
+  
+      res.status(200).json({ mensaje: 'Contraseña actualizada con éxito' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ mensaje: 'Error interno del servidor' });
+    }
+  };
+  
+
+module.exports = {
+  actualizarContrasena
+};
+
+  
+module.exports= {postUsuario,getUsuarios,deleteUsuarios,putUsuarios,getdatosUsuario,buscarUsuarioPorId , actualizarContrasena }
